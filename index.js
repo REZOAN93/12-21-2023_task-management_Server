@@ -298,12 +298,17 @@ async function run() {
     const updatedData = req.body;
     console.log("Received Update Request for Task:", getID);
     console.log("Updated Data:", updatedData);
-
     const filter = { _id: new ObjectId(getID) };
     const options = { upsert: true };
     const updateddocs = {
         $set: {
-            task_status: updatedData.task_status,
+          task_name: updatedData.task_name , 
+          description: updatedData.description , 
+          deadlines: updatedData.deadlines , 
+          priority: updatedData.priority , 
+          task_status: updatedData.task_status , 
+          date_added: updatedData.date_added , 
+          taskAddedby: updatedData.taskAddedby 
         }
     };
 
